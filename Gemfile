@@ -6,11 +6,11 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', ">=0.3"
-gem "haml", ">= 3.0.0"
-gem "haml-rails"
-gem "sass"
+gem 'haml', ">= 3.0.0"
+gem 'haml-rails'
+gem 'sass'
 gem 'sass-rails', "  ~> 3.1.0"
-gem "jquery-rails"
+gem 'jquery-rails'
 #gem 'rake', '~> 0.8.7' # rake 0.9.0 is broken
 
 # Gems used only for assets and not required
@@ -23,7 +23,7 @@ end
 
 # Gems for Heroku
 group :production do
-  gem "pg"
+  gem 'pg'
 end
 
 # Use unicorn as the web server
