@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @provider.name
+%p
+  %b Description:
+  = @provider.description
+%p
+  %b User:
+  = @provider.user_id
+%p
+  %b Location:
+  = @provider.location
+
+= link_to 'Edit', edit_provider_path(@provider)
+\|
+= link_to 'Back', providers_path
