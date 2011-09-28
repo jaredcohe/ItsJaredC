@@ -1,4 +1,6 @@
 Itsjaredc::Application.routes.draw do
+  resources :knowledges
+
   get "home/index"
   root :to => "home#index"
 

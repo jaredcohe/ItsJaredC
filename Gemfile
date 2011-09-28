@@ -6,8 +6,8 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', ">=0.3"
-gem 'haml', ">= 3.0.0"
-gem 'haml-rails'
+#gem 'haml', ">= 3.0.0"
+#gem 'haml-rails'
 gem 'sass'
 gem 'sass-rails', "  ~> 3.1.0"
 gem 'jquery-rails'

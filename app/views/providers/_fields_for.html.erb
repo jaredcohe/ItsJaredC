@@ -1,0 +1,28 @@
+<%= f.fields_for @provider do |builder| %>
+  <%-if @provider.errors.any? %>
+      <h2><%= "#{pluralize(@provider.errors.count, "error")} prohibited this provider from being saved:" %></h2>
+      <ul>
+        <%- @provider.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <%- end %>
+          
+      </ul>
+  <%- end %>
+
+  <div class='field'>
+    <%= builder.label :name %>
+    <%= builder.text_field :name %>
+  </div>
+  <div class='field'>
+    <%= builder.label :description %>
+    <%= builder.text_area :description %>
+  </div>
+  <div class='field'>
+    <%= builder.label :user_id %>
+    <%= builder.number_field :user_id %>
+  </div>
+  <div class='field'>
+    <%= builder.label :location %>
+    <%= builder.text_field :location %>
+  </div>
+<%- end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  url: MyString
+  description: MyText
+  user_id: 1
+  kind: 1
+  free: false
+
+two:
+  title: MyString
+  url: MyString
+  description: MyText
+  user_id: 1
+  kind: 1
+  free: false

@@ -1,0 +1,23 @@
+<p id='notice'>
+  <%= notice %>
+
+<p>Title:
+  <%= @knowledge.title %>
+</p>
+<p>Url:
+  <%= @knowledge.url %>
+</p>
+<p>Description:
+  <%= @knowledge.description %>
+</p>
+<p>User:
+  <%= @knowledge.user_id %>
+</p>
+<p>Kind:
+  <%= @knowledge.kind %>
+</p>
+<p>Free:
+  <%= @knowledge.free %>
+</p>
+<%= link_to 'Edit', edit_knowledge_path(@knowledge) %>
+<%= link_to 'Back', knowledges_path %>
