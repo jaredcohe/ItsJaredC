@@ -1,8 +1,9 @@
 Itsjaredc::Application.routes.draw do
   resources :knowledges
 
-  get "home/index"
   root :to => "home#index"
+  get "home/index"
+  get "home/input_scrape_knowledge_url"
 
   resources :providers
 

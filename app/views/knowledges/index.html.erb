@@ -1,0 +1,32 @@
+<h1>Listing knowledges</h1>
+
+<table>
+  <tr>
+    <th> Title</th>
+    <th> Url</th>
+    <th> Description</th>
+    <th> User</th>
+    <th> Kind</th>
+    <th> Free</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%- @knowledges.each do |knowledge| %>
+    <tr>
+      <td><%= knowledge.title %></td>
+      <td><%= knowledge.url %></td>
+      <td><%= knowledge.description %></td>
+      <td><%= knowledge.user_id %></td>
+      <td><%= knowledge.kind %></td>
+      <td><%= knowledge.free %></td>
+      <td><%= link_to 'Show', knowledge %></td>
+      <td><%= link_to 'Edit', edit_knowledge_path(knowledge) %></td>
+      <td><%= link_to 'Destroy', knowledge, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <%- end %>
+</table>
+
+<br />
+
+<%= link_to 'New Knowledge', new_knowledge_path %>

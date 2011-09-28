@@ -10,3 +10,12 @@
 </nav>
 
 <%= link_to "Providers", providers_path %>
+
+
+<%= form_tag(admin_sec_add_form_d_path, :method => :get) do %>
+  = label_tag :url, "Form D Url"
+  = text_field_tag :url
+  = label_tag :organization_id, "Organization ID"
+  = text_field_tag :organization_id
+  = submit_tag 'Submit Form D'
+<%- end %>

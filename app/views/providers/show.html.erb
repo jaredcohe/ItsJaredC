@@ -1,0 +1,17 @@
+<p id='notice'>notice</p>
+
+<p>Name:
+  <%= @provider.name %>
+</p>
+<p>Description:
+  <%= @provider.description %>
+</p>
+<p>User:
+  <%= @provider.user_id %>
+</p>
+<p>Location:
+  <%= @provider.location %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %>
+<%= link_to 'Back', providers_path %>
