@@ -25,7 +25,7 @@ class KnowledgesController < ApplicationController
   # GET /knowledges/new.json
   def new
     @knowledge = Knowledge.new
-    @knowledge.providers.build
+    3.times { @knowledge.providers.build }
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,5 +1,10 @@
 source 'http://rubygems.org'
 
+# do bundle install -- without production
+
+# for scraping
+gem 'nokogiri', '1.4.4'
+
 gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:

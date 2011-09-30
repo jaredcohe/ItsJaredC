@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<meta http-equiv="refresh" content="15;url=/?adxnnl=1&amp;adxnnlx=1317350687-hMfzmu7zveiFXg4Jv5vtjw">
+<title>NY Times Advertisement</title>
+</head>
+<body marginheight="2" marginwidth="0" leftmargin="0" topmargin="2" link="#000066" bgcolor="#FFFFFF" alink="#990000" vlink="#444464" text="#000000">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td align="center"><img src="http://graphics8.nytimes.com/ads/interstitial/logo-nytimes.jpg" width="397" height="73"></td>
+	</tr>
+<tr>
+<td align="center">
+      <div align="right">
+<a href="/?adxnnl=1&amp;adxnnlx=1317350687-hMfzmu7zveiFXg4Jv5vtjw" onmouseover="document.skip.src = 'http://graphics8.nytimes.com/ads/interstitial/skip1.gif'" onmouseout="document.skip.src='http://graphics8.nytimes.com/ads/interstitial/skip0.gif'"><img name="skip" src="http://graphics8.nytimes.com/ads/interstitial/skip0.gif" width="132" height="35" border="0"></a> 
+      </div>
+    </td>
+	</tr>
+<tr>
+<td colspan="2" bgcolor="#FFFFFF" align="center">
+<!-- ADXINFO classification="interstitial-homepage" campaign="nyt2011-acquisition-99c-4wks-welcomead-hp-388HQ"--><!--adx-interstitial timeout=15-->
+<div align="center">
+
+<script type="text/javascript">
+   var movieWidth = 640;
+   var movieHeight = 480;
+   var altSrc = "http://graphics8.nytimes.com/adx/images/ADS/27/35/ad.273513/HomePage_interstitial.jpg";
+   var swfFile = "http://www.nytimes.com/ads/adtraffic/marketing/welcomead/digisubs_homepage_insterstitial_clicktag.swf";
+   var altClickThru = "http://www.nytimes.com/adx/bin/adx_click.html?type=goto&opzn&page=interstitial:homepage.nytimes.com/index.html&pos=Interstitial&sn2=80c3f8e/dc78fa6a&sn1=2bd25dde/d3da0963&camp=nyt2011-acquisition-99c-4wks-welcomead-hp-388HQ&ad=99c-acquisition_640x480-welcomead-388HQ&goto=http%3A%2F%2Fwww%2Enytimes%2Ecom%2Fsubscriptions%2FMultiproduct%2Flp5558%2Ehtml%3Fadxc%3D166846%26adxa%3D273513%26page%3Dinterstitial:homepage.nytimes.com/index.html%26pos%3DInterstitial%26campaignId%3D388HQ";
+   var swfSrc = swfFile + "?clicktag=" + escape(altClickThru);
+</script><script type="text/javascript" src="http://www.nytimes.com/ads/common/embed3.js">
+</script>
+</div>
+<img src="/adx/bin/clientside/4abed39eQ2FQ26Q7Eq)fQ3AbQ25Q7Es)Q7EQ5C)Q252Q5DRQ5EQ5CQ7DbQ7D2" height="1" width="3">
+</td>
+<td colspan="2" bgcolor="#FFFFFF" align="center">
+	</td>
+</tr>
+<tr><td align="center"><img src="http://graphics8.nytimes.com/ads/advertisement.gif" width="350" height="35" name="btn_save" border="0"></td></tr>
+</table>
+</body>
+</html>

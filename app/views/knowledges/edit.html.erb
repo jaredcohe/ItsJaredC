@@ -1,0 +1,17 @@
+<h1>Editing knowledge</h1>
+
+<%= form_for @knowledge do |f| %>
+  <%= render 'form', :f => f %>
+
+  <%= f.fields_for :providers do |builder| %>
+    <%= render 'providers/form', :f => builder %>
+  <%- end %>
+
+  <div class='actions'>
+    <%= f.submit 'Save' %>
+  </div>
+<%- end %>
+
+<%= link_to 'Show', @knowledge %>
+
+<%= link_to 'Back', knowledges_path %>

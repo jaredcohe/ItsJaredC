@@ -1,4 +1,7 @@
 class ChangeDataTypeForKindOfKnowledge < ActiveRecord::Migration
+
+#change data type for kind column in knowledge model
+
   def self.up
     change_table :knowledges do |t|
       t.change :kind, :string
