@@ -8,17 +8,6 @@
 </div>
 <div class='field'>
   <%= f.label :description, 'Knowledge Description' %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, :size => '35x6' %>
 </div>
-<div class='field'>
-  <%= f.label :user_id %>
-  <%= f.number_field :user_id %>
-</div>
-<div class='field'>
-  <%= f.label :kind, 'Knowledge Kind' %>
-  <%= f.text_field :kind %>
-</div>
-<div class='field'>
-  <%= f.label :free %>
-  <%= f.check_box :free %>
-</div>
+<%= f.hidden_field :user_id, :value => '1' %>

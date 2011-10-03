@@ -3,14 +3,11 @@
   <%= f.text_field :name %>
 </div>
 <div class='field'>
-  <%= f.label :description, 'Provider Description' %>
-  <%= f.text_area :description %>
-</div>
-<div class='field'>
-  <%= f.label :user_id %>
-  <%= f.number_field :user_id %>
-</div>
-<div class='field'>
   <%= f.label :location, 'Provider Location' %>
   <%= f.text_field :location %>
 </div>
+<div class='field'>
+  <%= f.label :description, 'Provider Description' %>
+  <%= f.text_area :description, :size => '35x6' %>
+</div>
+<%= f.hidden_field :user_id, :value => '1' %>

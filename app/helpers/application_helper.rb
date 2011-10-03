@@ -22,8 +22,8 @@ EOS
 
   def clickable
     js =<<EOS
-      $(".clickable").click(function(){
-      console.log("test");
+      $j(".clickable").click(function(){
+      window.location = $j(this).find("a").attr("href");
       return false;
     });
 EOS

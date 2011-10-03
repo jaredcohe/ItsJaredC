@@ -1,7 +1,7 @@
 <h1>New knowledge</h1>
 
 <%= form_for @knowledge do |f| %>
-  <%= render 'form', :f => f %>
+  <%= render 'knowledges/form', :f => f %>
 
   <%= f.fields_for :providers do |builder| %>
     <%= render 'providers/form', :f => builder %>
