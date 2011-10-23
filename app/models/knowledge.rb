@@ -18,4 +18,12 @@ class Knowledge < ActiveRecord::Base
   @@levels = %w[beginner intermediate advanced any]
   cattr_reader :knowledge_kinds, :media, :levels
 
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+
 end

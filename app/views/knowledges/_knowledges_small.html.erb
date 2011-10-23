@@ -1,0 +1,16 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<table class="knowledges_providers">
+  <tr>
+    <th class='knowledge_id'><%= sortable "id", "Knowledge ID" %></th>
+    <th class='knowledge_title'><%= sortable "title", "Knowledge Title" %></th>
+  </tr>
+  <%- @knowledges.each do |knowledge| %>  
+    <tr>
+      <td class='knowledge_id'><%= knowledge.id %></td>
+      <td class='knowledge_title'><%= knowledge.title %></td>
+    </tr>
+  <% end %>  
+</table>
+<%= will_paginate @knowledges %>

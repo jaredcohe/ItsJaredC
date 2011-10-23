@@ -1,14 +1,26 @@
 <h1>knowledges_providers</h1>
 
-<table class="knowledges_providers">
-  <tr>
-    <th><%= sortable "id", "Knowledge ID" %></th>
-    <th><%= sortable "title", "Knowledge Title" %></th>
-  </tr>
-  <%- @knowledges.each do |knowledge| %>  
+<%= form_tag list_path, :method => 'get', :id => "knowledges_search" do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<div id="knowledges">
+  <table class="knowledges_providers">
     <tr>
-      <td><%= knowledge.id %></td>
-      <td><%= knowledge.title %></td>
+      <th class='knowledge_id'><%= sortable "id", "Knowledge ID" %></th>
+      <th class='knowledge_title'><%= sortable "title", "Knowledge Title" %></th>
     </tr>
-  <% end %>  
-</table>
+    <%- @knowledges.each do |knowledge| %>  
+      <tr>
+        <td class='knowledge_id'><%= knowledge.id %></td>
+        <td class='knowledge_title'><%= knowledge.title %></td>
+      </tr>
+    <% end %>  
+  </table>
+  <%= will_paginate @knowledges %>
+</div>

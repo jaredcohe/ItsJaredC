@@ -7,3 +7,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+/* for adding AJAX
+$(function() {
+  $("#knowledges th a, #knowledges .pagination a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#knowledges_search").submit(function() {
+    $.get(this.action, $(this).serialize(), null, "script");
+    return false;
+  });
+});
+*/

@@ -115,8 +115,9 @@ class KnowledgesController < ApplicationController
   end
 
   def knowledges_providers
-    @knowledges = Knowledge.order(sort_column + " " + sort_direction)
-    p "000000XXXXXXXXXX"
+    p params
+    p "0000000000000"
+    @knowledges = Knowledge.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
     render "knowledges_providers"
   end
 

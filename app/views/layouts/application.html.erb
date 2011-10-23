@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>ItsJaredC</title>
-    <meta content="The Truth About Law School helps people decide whether they should go to law school by educating them about law school and being a lawyer. Should I Go To Law School? Law school advice. Apply to Law School" name="description" />
+    <meta content="Curated education tutorials syllabus lesson plan" name="description" />
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -27,6 +27,7 @@
     <p><%= link_to "List Knowledges", knowledges_path %></p>
     <p><%= link_to "List Providers", providers_path %></p>
     <p><%= link_to "List Tags", categories_path %></p>
+    <p><%= link_to "knowledges_providers list", list_path %></p>
     <p><%= p params %></p>
 
     <%= yield %>
