@@ -2,13 +2,17 @@
 
 <table>
   <tr>
-    <th> Title</th>
-    <th> Url</th>
-    <th> Description</th>
-    <th> User</th>
-    <th> Kind</th>
-    <th> Free</th>
-    <th></th>
+    <th>Title</th>
+    <th>Url</th>
+    <th>String ID</th>
+    <th>Tags</th>
+    <th>Description</th>
+    <th>User</th>
+    <th>Kind</th>
+    <th>Medium</th>
+    <th>Level</th>
+    <th>Free</th>
+    <th>Clean</th>
     <th></th>
     <th></th>
   </tr>
@@ -16,13 +20,18 @@
     <tr>
       <td><%= knowledge.title %></td>
       <td><%= knowledge.url %></td>
+      <td><%= knowledge.string_id %></td>
+      <td><%= knowledge.categories.first.name if  knowledge.categories.count > 0 %></td>
       <td><%= knowledge.description %></td>
       <td><%= knowledge.user_id %></td>
-      <td><%= knowledge.kind %></td>
+      <td><%= knowledge.knowledge_kind %></td>
+      <td><%= knowledge.medium %></td>
+      <td><%= knowledge.level %></td>
       <td><%= knowledge.free %></td>
+      <td><%= knowledge.clean %></td>
       <td><%= link_to 'Show', knowledge %></td>
       <td><%= link_to 'Edit', edit_knowledge_path(knowledge) %></td>
-      <td><%= link_to 'Destroy', knowledge, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Destroy', knowledge, :method => :delete %></td>
     </tr>
   <%- end %>
 </table>

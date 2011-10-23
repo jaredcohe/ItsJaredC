@@ -1,0 +1,8 @@
+<%
+# collection_select(object, method, collection, value_method, text_method, options = {}, html_options = {})
+# collection_select(:post, :author_id, Author.find(:all), :id, :name)
+%>
+
+<div class="field">
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+</div>

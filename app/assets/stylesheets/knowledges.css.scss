@@ -1,3 +1,27 @@
 // Place all the styles related to the Knowledges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#knowledges_controller {
+
+  h1 {
+    font-size: 20px;
+    margin: 12px 0px;
+  }
+
+  .knowledges_providers {
+    border: 1px solid black;
+    th, td {
+      border: 1px solid black;
+      padding: 12px;
+      text-align: center;
+      width: 40px;
+    }
+  }
+
+  .field {
+    background-color: gray;
+    margin: 10px 0 0 0;
+  }
+
+}

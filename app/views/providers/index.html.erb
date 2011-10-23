@@ -6,20 +6,22 @@
     <th>Description</th>
     <th>User</th>
     <th>Location</th>
-    <th></th>
+    <th>Clean</th>
     <th></th>
     <th></th>
   </tr>
 
   <%- @providers.each do |provider| %>
     <tr>
+      <td><%= provider.id %></td>
       <td><%= provider.name %></td>
       <td><%= provider.description %></td>
       <td><%= provider.user_id %></td>
-      <td><%= provider.location %></td>
+      <td><%= provider.url %></td>
+      <td><%= provider.clean %></td>
       <td><%= link_to 'Show', provider %></td>
       <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-      <td><%= link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Destroy', provider, :method => :delete %></td>
     </tr>
   <%- end %>
 </table>

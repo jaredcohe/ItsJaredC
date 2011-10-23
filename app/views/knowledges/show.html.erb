@@ -7,17 +7,45 @@
 <p>Url:
   <%= @knowledge.url %>
 </p>
+<p>Knowledge String ID:
+  <%= @knowledge.string_id %>
+</p>
+
 <p>Description:
   <%= @knowledge.description %>
 </p>
+
+<p>Categories:
+<%- @knowledge.categories.each do |category| %>
+  <%= category.name %>
+<%- end %>
+</p>
+
 <p>User:
   <%= @knowledge.user_id %>
 </p>
-<p>Kind:
-  <%= @knowledge.kind %>
+<p>Knowledge Kind:
+  <%= @knowledge.knowledge_kind %>
+</p>
+<p>Level:
+  <%= @knowledge.level %>
+</p>
+<p>Medium:
+  <%= @knowledge.medium %>
 </p>
 <p>Free:
   <%= @knowledge.free %>
 </p>
+<p>Clean:
+  <%= @knowledge.clean %>
+</p>
+
+<%- @knowledge.providers.each do |provider| %>
+  <p>Provider name: <%= provider.name %></p>
+  <p>Provider location: <%= provider.url %></p>
+  <p>Provider about page: <%= provider.about %></p>
+  <p>Provider description: <%= provider.description %></p>
+<%- end %>
+
 <%= link_to 'Edit', edit_knowledge_path(@knowledge) %>
 <%= link_to 'Back', knowledges_path %>

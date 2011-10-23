@@ -1,0 +1,25 @@
+<h1>Listing subcategorizations</h1>
+
+<table>
+  <tr>
+    <th>Knowledge</th>
+    <th>Subcategory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subcategorizations.each do |subcategorization| %>
+  <tr>
+    <td><%= subcategorization.knowledge_id %></td>
+    <td><%= subcategorization.subcategory_id %></td>
+    <td><%= link_to 'Show', subcategorization %></td>
+    <td><%= link_to 'Edit', edit_subcategorization_path(subcategorization) %></td>
+    <td><%= link_to 'Destroy', subcategorization, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subcategorization', new_subcategorization_path %>

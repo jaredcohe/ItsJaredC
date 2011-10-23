@@ -3,6 +3,11 @@
 <%= form_for @knowledge do |f| %>
   <%= render 'knowledges/form', :f => f %>
 
+  <h2>Categories:</h2>
+  <%= f.fields_for :categorizations do |builder| %>
+    <%= render 'categorizations/form', :f => builder %>
+  <%- end %>
+
   <%= f.fields_for :providers do |builder| %>
     <%= render 'providers/form', :f => builder %>
   <%- end %>

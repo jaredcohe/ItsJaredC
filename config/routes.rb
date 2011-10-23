@@ -1,13 +1,23 @@
 Itsjaredc::Application.routes.draw do
-  resources :knowledges
-
   root :to => "home#index"
+
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
   get "home/index"
   get "home/input_scrape_knowledge"
+  get "list" => "knowledges#knowledges_providers", :as => "list"
 
+  resources :sessions
+  resources :users
+  resources :subcategorizations
+  resources :categorizations
+  resources :subcategories
+  resources :categories
+  resources :tags
+  resources :knowledges
+  resources :password_resets
   resources :providers
-
-  #root :to => 'welcome#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

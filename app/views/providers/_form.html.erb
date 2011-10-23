@@ -3,11 +3,23 @@
   <%= f.text_field :name %>
 </div>
 <div class='field'>
-  <%= f.label :location, 'Provider Location' %>
-  <%= f.text_field :location %>
+  <%= f.label :url, 'Provider Location' %>
+  <%= f.text_field :url %>
+</div>
+<div class='field'>
+  <%= f.label :string_id, 'Provider String ID' %>
+  <%= f.text_field :string_id %>
+</div>
+<div class='field'>
+  <%= f.label :about, 'About Page for Provider' %>
+  <%= f.text_field :about %>
 </div>
 <div class='field'>
   <%= f.label :description, 'Provider Description' %>
   <%= f.text_area :description, :size => '35x6' %>
+</div>
+<div class='field'>
+  <%= f.label :clean %>
+  <%= f.check_box :clean %>
 </div>
 <%= f.hidden_field :user_id, :value => '1' %>

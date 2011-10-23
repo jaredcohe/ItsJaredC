@@ -1,0 +1,2 @@
+module KnowledgeKindsHelper
+end

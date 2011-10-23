@@ -7,7 +7,30 @@
   <%= f.text_field :url %>
 </div>
 <div class='field'>
+  <%= f.label :string_id, 'Knowledge String ID' %>
+  <%= f.text_field :string_id %>
+</div>
+<div class='field'>
   <%= f.label :description, 'Knowledge Description' %>
   <%= f.text_area :description, :size => '35x6' %>
 </div>
-<%= f.hidden_field :user_id, :value => '1' %>
+<div class='field'>
+  <%= f.label :knowledge_kind %>
+  <%= f.select :knowledge_kind, Knowledge.knowledge_kinds, :include_blank => true %>
+</div>
+<div class='field'>
+  <%= f.label :medium %>
+  <%= f.select :medium, Knowledge.media, :include_blank => true %>
+</div>
+<div class='field'>
+  <%= f.label :level %>
+  <%= f.select :level, Knowledge.levels, :include_blank => true %>
+</div>
+<div class='field'>
+  <%= f.label :free %>
+  <%= f.check_box :free %>
+</div>
+<div class='field'>
+  <%= f.label :clean %>
+  <%= f.check_box :clean %>
+</div>

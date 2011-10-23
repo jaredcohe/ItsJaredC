@@ -10,7 +10,16 @@
   <%= @provider.user_id %>
 </p>
 <p>Location:
-  <%= @provider.location %>
+  <%= @provider.url %>
+</p>
+<p>Provider String ID:
+  <%= @provider.string_id %>
+</p>
+<p>About Page
+  <%= @provider.about %>
+</p>
+<p>Clean:
+  <%= @provider.clean %>
 </p>
 
 <%= link_to 'Edit', edit_provider_path(@provider) %>

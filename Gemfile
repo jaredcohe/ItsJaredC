@@ -5,6 +5,12 @@ source 'http://rubygems.org'
 # for scraping
 gem 'nokogiri', '1.4.4'
 
+# to speed up dev environment
+#gem 'rails-dev-tweaks', '~> 0.5.1'
+#group :development do
+#  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
+#end
+
 gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:

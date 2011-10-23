@@ -7,9 +7,28 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
 
-  <body id="<%= params[:controller].parameterize %>_controller"
-    #railscasts268, for scoping css >
-    <%= p params %>
+  <body id="<%= params[:controller].parameterize %>_controller">
+    
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+    <div id="user_nav">
+      <% if current_user %>
+        Logged in as <%= current_user.email %>.
+        <%= link_to "Log out", log_out_path %>
+      <% else %>
+        <%= link_to "Sign up", sign_up_path %> or
+        <%= link_to "log in", log_in_path %>
+      <% end %>
+    </div>
+
+    <p><%= link_to "Take Me Home", :root %></p>
+    <p><%= link_to "List Knowledges", knowledges_path %></p>
+    <p><%= link_to "List Providers", providers_path %></p>
+    <p><%= link_to "List Tags", categories_path %></p>
+    <p><%= p params %></p>
+
     <%= yield %>
 
   </body>

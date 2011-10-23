@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  knowledge_id: 1
+  category_id: 1
+
+two:
+  knowledge_id: 1
+  category_id: 1

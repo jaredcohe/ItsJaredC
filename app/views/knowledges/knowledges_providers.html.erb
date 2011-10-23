@@ -1,0 +1,14 @@
+<h1>knowledges_providers</h1>
+
+<table class="knowledges_providers">
+  <tr>
+    <th><%= sortable "id", "Knowledge ID" %></th>
+    <th><%= sortable "title", "Knowledge Title" %></th>
+  </tr>
+  <%- @knowledges.each do |knowledge| %>  
+    <tr>
+      <td><%= knowledge.id %></td>
+      <td><%= knowledge.title %></td>
+    </tr>
+  <% end %>  
+</table>

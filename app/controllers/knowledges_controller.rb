@@ -1,6 +1,8 @@
 class KnowledgesController < ApplicationController
-  # GET /knowledges
-  # GET /knowledges.json
+
+  # to access private methods at bottom
+  helper_method :sort_column, :sort_direction
+
   def index
     @knowledges = Knowledge.all
 
@@ -10,8 +12,6 @@ class KnowledgesController < ApplicationController
     end
   end
 
-  # GET /knowledges/1
-  # GET /knowledges/1.json
   def show
     @knowledge = Knowledge.find(params[:id])
 
@@ -21,22 +21,11 @@ class KnowledgesController < ApplicationController
     end
   end
 
-  # GET /knowledges/new
-  # GET /knowledges/new.json
   def new
-
-    p 'new'
-    p '2222222222'
-    p params
-    p params[:knowledge]
-    p '333444444444'
+    p# params[:knowledge]
     @knowledge = Knowledge.new
-    2.times { @knowledge.providers.build }
-    p params[:knowledge]
-    p @knowledge
-    p @knowledge.providers
-    p '2222222222222'
-    p 'knowledge#new parameters'
+    @knowledge.providers.build
+    5.times { @knowledge.categorizations.build }
     p params
 
     respond_to do |format|
@@ -48,6 +37,16 @@ class KnowledgesController < ApplicationController
   # GET /knowledges/1/edit
   def edit
     @knowledge = Knowledge.find(params[:id])
+    @provider_url = @knowledge.url[/.+\.[A-Za-z0-9]{2,4}\//].nil? ? @knowledge.url : @knowledge.url[/.+\.[A-Za-z0-9]{2,4}\//]
+    @knowledge.providers.build(:url => @provider_url) if @knowledge.providers.empty?
+    @knowledge.providers.build
+    3.times { @knowledge.categorizations.build }
+    #@knowledge.categorizations.build if @knowledge.categories.empty?
+
+    #(1..(10 - @knowledge.tags.count)).each { @knowledge.tags.build }
+    p "knowledges controller, edit path"
+    p params
+    p "8888888888888888888888"
   end
 
   def knowledge_from_url
@@ -64,8 +63,11 @@ class KnowledgesController < ApplicationController
     @knowledge = Knowledge.new(params[:knowledge])
     p '@knowledge in create is'
     p @knowledge
-    p '2222222222'
+    #p @knowledge.providers
+    #p @knowledge.tags
+    p "knowledges controller, create path"
     p params
+    p "8888888888888888888888"
     
     respond_to do |format|
       if @knowledge.save
@@ -82,6 +84,12 @@ class KnowledgesController < ApplicationController
   # PUT /knowledges/1.json
   def update
     @knowledge = Knowledge.find(params[:id])
+    @knowledge.user_id = current_user ? current_user.id : '1'
+
+    p "knowledges controller, update path"
+    p params
+    p "77777777777777777777"
+    p @knowledge
 
     respond_to do |format|
       if @knowledge.update_attributes(params[:knowledge])
@@ -105,4 +113,21 @@ class KnowledgesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def knowledges_providers
+    @knowledges = Knowledge.order(sort_column + " " + sort_direction)
+    p "000000XXXXXXXXXX"
+    render "knowledges_providers"
+  end
+
+  private
+
+  def sort_column
+    Knowledge.column_names.include?(params[:sort]) ? params[:sort] : "title"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
 end
