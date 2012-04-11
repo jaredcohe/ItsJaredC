@@ -1,48 +1,149 @@
-// Place all the styles related to the Knowledges controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 #knowledges_controller {
 
-  h1 {
-    font-size: 20px;
-    margin: 12px 0px;
+  font-family: "Helvetica Neue",Arial,Helvetica,'Liberation Sans',FreeSans,sans-serif;
+
+  form {
+    margin: 0px;
+    padding: 0px;
   }
 
-  .knowledges_providers {
-    border: 1px solid black;
-    th, td {
-      border: 1px solid black;
-      padding: 12px;
-      text-align: center;
+  #main {
+    text-align: center;
+  }
+
+  #top {
+    padding-right: 160px;
+    text-align: center;
+  }
+
+  #bottom {
+    margin: 0px auto;
+    width: 780px;
+  }
+
+  #knowledges {
+    margin-left: 20px;
+    width: 340px;
+  }
+
+  #lesson_plans {
+    width: 280px;
+  }
+
+  #knowledges, #lesson_plans {
+    display: inline-block;
+    vertical-align: top;
+
+    a {
+      text-decoration: none;
+    }
+
+    .lesson_plans_header, .knowledges_header {
+      width: 220px;
+    }
+
+    .lesson_plans_row, .knowledges_row {
+      height: 40px;
+      margin: 8px 0px;
+      width: 220px;
+      overflow: hidden;
+      &:hover {
+        background-color: $gray2;
+        border-radius: 8px;
+      }
+    }
+
+    .knowledges_row:hover {
+      width: 340px;        
+    }
+
+    .lesson_plans_row:hover {
+      width: 280px;        
+    }
+
+    .knowledges_title, .lesson_plans_title {
+      display: table;
+      float: left;
+      height: 40px;
+      width: 220px;
+      vertical-align: middle;
+      &:hover {
+        background-color: $gray2;
+        cursor: pointer;
+      }
+    }
+
+    .lesson_plans_link, .knowledges_link {
+      display: table-cell;
+      color: $gray4;
+      height: 40px;
+      padding: 0px 26px;
+      vertical-align: middle;
+      &:hover {
+        color: $orange;
+      }
+    }
+
+    .lesson_plans_icon, .knowledges_icons {
+      display: table-cell;
+      vertical-align: middle;
+      height: 40px;
+      width: 120px;
+    }
+
+    .lesson_plans_icon {
+      .plus {
+        height: 40px;
+        vertical-align: middle;
+      }
+    }
+
+    .knowledges_icons {
+      .plus, .arrow {
+        height: 40px;
+        vertical-align: middle;
+      }
+    }
+
+    .plus, .arrow {
+      display: table-cell;
+      color: $gray4;
+      width: 60px;
+      padding: 0px 0px;
+
+      &:hover {
+          color: $orange;
+          padding: 0px;
+          &:after {
+            color: $orange;
+          }
+      }
+    }
+
+    .plus {
+      span {
+        background: url(icon_plus.png) no-repeat;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        text-indent: -9999px;
+      }
+      &:hover:after {
+        content: " todo";
+      }
     }
     
-    .knowledge_id  {
-      width: 20px;
+    .arrow {
+      span {
+        background: url(icon_arrow.png) no-repeat;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+        text-indent: -9999px;
+      }
+      &:hover:after {
+        content: " visit";
+      }
     }
-    
-    .knowledge_title {
-      width: 240px;
-    }
   }
-
-  .field {
-    background-color: gray;
-    margin: 10px 0 0 0;
-  }
-
-  th .current {
-    padding-right: 12px;
-    background-repeat: no-repeat;
-    background-position: right center;
-  }
-
-  th .asc {
-    background-image: url(up_arrow.gif);
-  }
-
-  th .desc {
-    background-image: url(down_arrow.gif);
-  }
-
 }

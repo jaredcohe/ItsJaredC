@@ -1,4 +1,5 @@
 class SubcategoriesController < ApplicationController
+  before_filter :authorize
   # GET /subcategories
   # GET /subcategories.json
   def index

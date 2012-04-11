@@ -1,0 +1,29 @@
+<h1>Listing user_knowledge_states</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Knowledge</th>
+    <th>User knowledge state</th>
+    <th>Position</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_knowledge_states.each do |user_knowledge_state| %>
+  <tr>
+    <td><%= user_knowledge_state.user_id %></td>
+    <td><%= user_knowledge_state.knowledge_id %></td>
+    <td><%= user_knowledge_state.user_knowledge_state_id %></td>
+    <td><%= user_knowledge_state.position %></td>
+    <td><%= link_to 'Show', user_knowledge_state %></td>
+    <td><%= link_to 'Edit', edit_user_knowledge_state_path(user_knowledge_state) %></td>
+    <td><%= link_to 'Destroy', user_knowledge_state, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User knowledge state', new_user_knowledge_state_path %>

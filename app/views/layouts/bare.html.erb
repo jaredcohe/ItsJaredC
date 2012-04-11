@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+    <title>Seedtap</title>
+    <meta content="Curated education tutorials syllabus lesson plans for teaching oneself self-taught" name="description" />
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+
+  <body id="<%= params[:controller].parameterize %>_controller">
+
+    <%= yield %>
+
+  </body>
+</html>

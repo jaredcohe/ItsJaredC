@@ -8,10 +8,23 @@ module ApplicationHelper
     # link_to has two separate hash options, so need the curly braces to separate the two
   end
 
+  def make_add_knowledge_field_link(f)
+    new_fields = f.fields_for(:knowledges, Knowledge.new, :child_index => "new_knowledge") do |builder|
+      builder.object.farmings.build
+      render("knowledges/knowledges_url_form", :f => builder)
+    end
+    link_to_function("add source", "add_knowledge_fields(this, \"#{escape_javascript(new_fields)}\")")
+  end
+
 =begin
 
-  def jquery_block_tag(content)
-    javascript_tag "jQuery(function(){#{content}})"
+  def clickable
+    js =<<EOS
+      $j(".clickable").click(function(){
+      window.location = $j(this).find("a").attr("href");
+      return false;
+    });
+EOS
   end
 
   def disable_conflict
@@ -20,20 +33,15 @@ module ApplicationHelper
 EOS
   end
 
+  def jquery_block_tag(content)
+    javascript_tag "jQuery(function(){#{content}})"
+  end
+
   def contact_us
     js =<<EOS
       $j("#contact_us_menu_container").click(function() {
         $j("#dialog").dialog({ title: 'Contact Form'});
         });
-EOS
-  end
-
-  def clickable
-    js =<<EOS
-      $j(".clickable").click(function(){
-      window.location = $j(this).find("a").attr("href");
-      return false;
-    });
 EOS
   end
 

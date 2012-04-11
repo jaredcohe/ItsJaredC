@@ -1,25 +1,33 @@
 class HomeController < ApplicationController
+  #layout "public"
+  #layout "public", :only => :home
+  #layout "application", :only => :index
+  
+  before_filter :authorize, :except => [:home, :index]
 
   require 'uri'
 
-=begin
-  def test(url)
-    uri = URI.parse(url)
-
-    http = Net::HTTP.new(uri.host, uri.port)
-    p http
-    p 'uuuuuuuuuuuuuuuuuuu'
-    request = Net::HTTP::Get.new(uri.request_uri)
-    response = http.request(request)
-    p response.code
-    p "-------------------"
-    
-    html = Nokogiri::HTML(open(url))
-    p html.css("title").text
-  end
-=end
-
   def index
+    p current_user
+    
+    unless current_user
+      #@destination_controller = params[:controller]
+      #@destination_action = params[:action]
+      #params[:destination_action] = params[:action]
+      #params[:desination_controller] = params[:controller]
+
+      @user = User.new
+      render "/users/new", :layout => "bare"
+      #redirect_to "/users/new", :jared => "hamb", @cohen => "blblbl", params[:destination_action] => "food"
+      #:layout => "bare", :destination_action => params[:action], :destination_controller => params[:controller]
+      p params
+      #p :jared
+      #p @cohen
+      p "-----------------"
+    end
+  end
+
+  def home
   end
 
   def input_scrape_knowledge
@@ -27,31 +35,16 @@ class HomeController < ApplicationController
     form_inputs = {}
     form_inputs[:knowledge_url] = params[:url]
 
-    #if (form_inputs[:knowledge_url] =~ URI::regexp).nil?
-    #  redirect_to :back, flash[:notice] => "Please enter a valid URL, including http..."
-
     knowledge_object = KnowledgeScraper.new(form_inputs[:knowledge_url])
 
-    #p knowledge_object
-    #p "000000000000000"
-    #p form_inputs[:knowledge_url]
-
-    if knowledge_object.bad_url # test URL
-      # if URL doesn't work
+    
+    if knowledge_object.bad_url && (form_inputs[:knowledge_url] =~ URI::regexp).nil?
+      # if URL doesnt scrape and doesnt look like URL
       redirect_to :back, flash[:notice] => "Please enter a valid URL, including http..."
-    else # if URL was valid and scraped
-      form_inputs[:title] = knowledge_object.title.strip
-      form_inputs[:description] = knowledge_object.description.blank? ? form_inputs[:title] : knowledge_object.description
-
-      #p form_inputs[:title]
-      #p form_inputs[:description]
-      #p "1111111111111111"
+    else # if either scrapes or looks like URL or both
 
       # get to root/provider URL
       form_inputs[:provider_url] = form_inputs[:knowledge_url][/.+\.[A-Za-z0-9]{2,4}\//]
-
-      #p form_inputs[:provider_url]
-      #p form_inputs[:knowledge_url]
 
       # get rid of http(s)
       knowledge_url_no_http = form_inputs[:knowledge_url].gsub("https://","").chomp(separator="/")
@@ -65,6 +58,9 @@ class HomeController < ApplicationController
       form_inputs[:provider_string_id] = form_inputs[:provider_url].gsub("https://","").chomp(separator="/")
       form_inputs[:provider_string_id] = form_inputs[:provider_url].gsub("http://","").chomp(separator="/")
 
+      form_inputs[:title] = knowledge_object.title.blank? ? form_inputs[:knowledge_string_id] : knowledge_object.title.strip
+      form_inputs[:description] = knowledge_object.description.blank? ? form_inputs[:title] : knowledge_object.description
+
       knowledge_search_results = Knowledge.where("string_id LIKE ?", "%#{form_inputs[:knowledge_string_id]}%")
       provider_search_results = Provider.where("string_id LIKE ?", "%#{form_inputs[:provider_string_id]}%")
 
@@ -74,7 +70,7 @@ class HomeController < ApplicationController
         params.merge!(form_inputs)
         @knowledge = Knowledge.new(:title => form_inputs[:title], :url => form_inputs[:knowledge_url], :description => form_inputs[:description], :string_id => form_inputs[:knowledge_string_id])
         #10.times { @knowledge.tags.build }
-        2.times { @knowledge.categorizations.build }
+        4.times { @knowledge.categorizations.build }
 
         # search for provider_string_id
         if provider_search_results.empty?
@@ -92,13 +88,12 @@ class HomeController < ApplicationController
         redirect_to knowledge_path(knowledge_search_results.first.id)
       end # knowledge search loop
     end # url verify loop
-  p "home controller, input_scrape_knowledge method"
-  p params
 
   end # method loop
 
 end
 
+=begin
 class KnowledgeScraper
 
   require 'nokogiri'
@@ -110,14 +105,14 @@ class KnowledgeScraper
   def initialize(url)
     begin
       html = Nokogiri::HTML(open(url))
-      description = html.css("meta[name='description']")
+      @description = html.css("meta[name='description']").length > 0 ? html.css("meta[name='description']").first.attributes['content'].value : ""
       @title = html.css("title").text
-      @description = description.length > 1 ? description.first.attributes['content'].value : ''
+      #@description = description.length > 1 ? description.first.attributes['content'].value : ''
       #@keywords = html.css("meta[name='keywords']").first.attributes['content'].value
       @bad_url = false
-      #rescue NoMethodError
     rescue Exception
       @bad_url = true
     end
   end
 end
+=end

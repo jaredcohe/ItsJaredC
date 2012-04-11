@@ -1,0 +1,10 @@
+<div class="field">
+  <%= f.label :title, "Step Title" %><br />
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :notes, "Step Notes" %><br />
+  <%= f.text_area :notes %>
+</div>
+<%= f.hidden_field :destroy, :value => false %>
+<%= link_to_function "Remove", "remove_fields(this)" %>

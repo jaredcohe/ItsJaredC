@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  before_filter :authorize
 
   # GET /providers
   # GET /providers.json

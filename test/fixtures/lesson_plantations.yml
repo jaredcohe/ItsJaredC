@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  references: 
+  title: MyString
+  description: MyText
+  keywords: MyText
+  clean: false
+
+two:
+  references: 
+  title: MyString
+  description: MyText
+  keywords: MyText
+  clean: false

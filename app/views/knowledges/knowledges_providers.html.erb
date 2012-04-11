@@ -17,7 +17,7 @@
     </tr>
     <%- @knowledges.each do |knowledge| %>  
       <tr>
-        <td class='knowledge_id'><%= knowledge.id %></td>
+        <td class='knowledge_id'><%= link_to knowledge.id, knowledge_path(knowledge.id) %></td>
         <td class='knowledge_title'><%= knowledge.title %></td>
       </tr>
     <% end %>  

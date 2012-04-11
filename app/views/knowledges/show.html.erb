@@ -1,3 +1,5 @@
+<%= link_to_function "add to to-do list", "add_to_log(this,  \"#{escape_javascript(@knowledge.id.to_s)}\", \"#{escape_javascript(@knowledge.url)}\")" %>
+
 <p id='notice'>
   <%= notice %>
 
@@ -13,6 +15,10 @@
 
 <p>Description:
   <%= @knowledge.description %>
+</p>
+
+<p>Keywords:
+  <%= @knowledge.keywords %>
 </p>
 
 <p>Categories:
@@ -48,4 +54,3 @@
 <%- end %>
 
 <%= link_to 'Edit', edit_knowledge_path(@knowledge) %>
-<%= link_to 'Back', knowledges_path %>

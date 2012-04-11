@@ -1,3 +1,108 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#users_controller {
+
+	nav.top_menu {
+		width: 800px;
+	  margin: 20px auto;	
+	}
+
+  font-family: "Helvetica Neue",Arial,Helvetica,'Liberation Sans',FreeSans,sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+
+  .lesson_plans_row, .knowledges_row {
+    height: 60px;
+    margin: 8px 0px;
+    width: 600px;
+    &:hover {
+      background-color: $gray2;
+      border-radius: 8px;
+			cursor: pointer;
+    }
+  }
+
+  .knowledges_title, .lesson_plans_title {
+    display: table;
+    float: left;
+    height: 60px;
+    width: 280px;
+    &:hover {
+      background-color: $gray2;
+      cursor: pointer;
+    }
+  }
+
+	.knowledges_status {
+    display: table;
+    float: left;
+    height: 60px;
+    width: 20px;
+		text-align: center;
+
+		p {
+			display: table-cell;
+	    vertical-align: middle;
+		}
+	}
+
+  .lesson_plans_link, .knowledges_link {
+    display: table-cell;
+    color: $gray4;
+    height: 40px;
+    padding: 0px 26px;
+    vertical-align: middle;
+  }
+
+  .lesson_plans_icon, .knowledges_icons {
+    display: table-cell;
+    vertical-align: middle;
+    height: 40px;
+    width: 120px;
+  }
+
+  .lesson_plans_icon {
+    .plus {
+      height: 40px;
+      vertical-align: middle;
+    }
+  }
+
+  .knowledges_icons {
+    .plus, .arrow {
+      height: 40px;
+      vertical-align: middle;
+    }
+  }
+
+  .plus, .arrow {
+    display: table-cell;
+    color: $gray4;
+    width: 60px;
+    padding: 0px 0px;
+
+    &:hover {
+        color: $orange;
+        padding: 0px;
+        &:after {
+          color: $orange;
+        }
+    }
+  }
+
+  .plus {
+    &:hover:after {
+      content: " todo";
+    }
+  }
+  
+  .arrow {
+    &:hover:after {
+      content: " visit";
+    }
+  }
+}

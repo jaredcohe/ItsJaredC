@@ -13,7 +13,9 @@ gem 'will_paginate', '~> 3.0'
 #  gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git', :require => 'rails_development_boost'
 #end
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.0'
+
+gem 'bcrypt-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -22,16 +24,16 @@ gem 'mysql2', ">=0.3"
 #gem 'haml', ">= 3.0.0"
 #gem 'haml-rails'
 gem 'sass'
-gem 'sass-rails', "  ~> 3.1.0"
+# made comment to upgrade to rails 3.2.0, gem 'sass-rails', "  ~> 3.2.3"
 gem 'jquery-rails'
 #gem 'rake', '~> 0.8.7' # rake 0.9.0 is broken
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
-  gem 'uglifier'
+  gem 'sass-rails', "  ~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>= 1.0.3'
 end
 
 # Gems for Heroku

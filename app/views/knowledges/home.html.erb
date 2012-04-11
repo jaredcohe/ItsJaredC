@@ -1,0 +1,12 @@
+<div id='main'>
+
+  <div id='top'>
+    <h1 class="green_header">Teach me</h1>
+    <%= form_tag search_path, :method => 'get', :id => "knowledges_search" do %>
+      <%= text_field_tag :search, params[:search], :placeholder => "html, poker, swimming ..." %><br />
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <%= render "home_bottom" %>
+</div>

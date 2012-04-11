@@ -1,0 +1,31 @@
+<h1>Listing farmings</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Lesson_Plantation ID</th>
+    <th>Knowledge_ID</th>
+    <th>Title</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @farmings.each do |farming| %>
+  <tr>
+    <td><%= farming.id %></td>
+    <td><%= farming.lesson_plantation_id %></td>
+    <td><%= farming.knowledge_id %></td>
+    <td><%= farming.title %></td>
+    <td><%= farming.notes %></td>
+    <td><%= link_to 'Show', farming %></td>
+    <td><%= link_to 'Edit', edit_farming_path(farming) %></td>
+    <td><%= link_to 'Destroy', farming, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Farming', new_farming_path %>

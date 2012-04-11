@@ -1,0 +1,35 @@
+<h1>Listing logs</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Knowledge</th>
+    <th>Lesson plantation</th>
+    <th>Order</th>
+    <th>Score</th>
+    <th>Review</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @logs.each do |log| %>
+  <tr>
+    <td><%= log.user_id %></td>
+    <td><%= log.knowledge_id %></td>
+    <td><%= log.lesson_plantation_id %></td>
+    <td><%= log.order %></td>
+    <td><%= log.score %></td>
+    <td><%= log.review %></td>
+    <td><%= log.status %></td>
+    <td><%= link_to 'Show', log %></td>
+    <td><%= link_to 'Edit', edit_log_path(log) %></td>
+    <td><%= link_to 'Destroy', log, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Log', new_log_path %>

@@ -1,0 +1,12 @@
+<div class="knowledge_fields">
+  <%= f.label :url, "Knowledge URL" %>
+  <%- if !f.object.url.nil? %>
+    <%= f.object.url %>
+  <%- else %>
+    <%= f.text_field :url %>
+  <% end %>
+  
+  <%= f.fields_for :farmings do |builder| %>
+    <%= render "farmings/small_form", :f => builder %>
+  <% end %>
+</div>

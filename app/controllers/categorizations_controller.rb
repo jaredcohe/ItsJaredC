@@ -1,4 +1,5 @@
 class CategorizationsController < ApplicationController
+  before_filter :authorize
   # GET /categorizations
   # GET /categorizations.json
   def index

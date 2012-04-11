@@ -1,37 +1,32 @@
 class KnowledgesController < ApplicationController
+  before_filter :authorize, :except => [:home, :show]
+
+  # application layout is still default layout file
 
   # to access private methods at bottom
   helper_method :sort_column, :sort_direction
 
+  def home
+    @user_id = current_user.nil? ? "0" : current_user.id
+    @knowledges = Knowledge.search(params[:search]).paginate(:per_page => 100, :page => params[:page])
+    @lesson_plans = LessonPlantation.search(params[:search]).paginate(:per_page => 100, :page => params[:page])
+    # render :home, :layout => "public"
+  end
+
   def index
     @knowledges = Knowledge.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @knowledges }
-    end
   end
 
   def show
     @knowledge = Knowledge.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @knowledge }
-    end
+    @user = current_user if current_user else nil
+    #@user_knowledge_states = @knowledge.user_knowledge_states.build(:user_id => @user.id) if @user
   end
 
   def new
-    p# params[:knowledge]
     @knowledge = Knowledge.new
     @knowledge.providers.build
     5.times { @knowledge.categorizations.build }
-    p params
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @knowledge }
-    end
   end
 
   # GET /knowledges/1/edit
@@ -41,12 +36,6 @@ class KnowledgesController < ApplicationController
     @knowledge.providers.build(:url => @provider_url) if @knowledge.providers.empty?
     @knowledge.providers.build
     3.times { @knowledge.categorizations.build }
-    #@knowledge.categorizations.build if @knowledge.categories.empty?
-
-    #(1..(10 - @knowledge.tags.count)).each { @knowledge.tags.build }
-    p "knowledges controller, edit path"
-    p params
-    p "8888888888888888888888"
   end
 
   def knowledge_from_url
@@ -55,20 +44,9 @@ class KnowledgesController < ApplicationController
   end
 
   # POST /knowledges
-  # POST /knowledges.json
   def create
-    p 'create'
-    p params
-    p params[:knowledge]
     @knowledge = Knowledge.new(params[:knowledge])
-    p '@knowledge in create is'
-    p @knowledge
-    #p @knowledge.providers
-    #p @knowledge.tags
-    p "knowledges controller, create path"
-    p params
-    p "8888888888888888888888"
-    
+
     respond_to do |format|
       if @knowledge.save
         format.html { redirect_to @knowledge, notice: 'Knowledge was successfully created.' }
@@ -81,15 +59,9 @@ class KnowledgesController < ApplicationController
   end
 
   # PUT /knowledges/1
-  # PUT /knowledges/1.json
   def update
     @knowledge = Knowledge.find(params[:id])
     @knowledge.user_id = current_user ? current_user.id : '1'
-
-    p "knowledges controller, update path"
-    p params
-    p "77777777777777777777"
-    p @knowledge
 
     respond_to do |format|
       if @knowledge.update_attributes(params[:knowledge])
@@ -103,7 +75,6 @@ class KnowledgesController < ApplicationController
   end
 
   # DELETE /knowledges/1
-  # DELETE /knowledges/1.json
   def destroy
     @knowledge = Knowledge.find(params[:id])
     @knowledge.destroy
@@ -115,10 +86,7 @@ class KnowledgesController < ApplicationController
   end
 
   def knowledges_providers
-    p params
-    p "0000000000000"
     @knowledges = Knowledge.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
-    render "knowledges_providers"
   end
 
   private
@@ -130,5 +98,5 @@ class KnowledgesController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
-  
+
 end

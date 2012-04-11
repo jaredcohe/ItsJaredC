@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Farming ID:</b>
+  <%= @farming.id %>
+</p>
+<p>
+  <b>Lesson Plantation:</b>
+  <%= @farming.lesson_plantation_id %>
+</p>
+
+<p>
+  <b>Knowledges:</b>
+  <%= @farming.knowledge_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @farming.title %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @farming.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_farming_path(@farming) %> |
+<%= link_to 'Back', farmings_path %>

@@ -1,23 +1,36 @@
 Itsjaredc::Application.routes.draw do
-  root :to => "home#index"
+
+  resources :logs
+  resources :farmings
+  resources :lesson_plantations
+  resources :user_knowledge_states
+  resources :sessions
+  resources :users
+  resources :knowledges
+  resources :password_resets
+
+  root :to => "knowledges#home"
+  match "access_denied" => "pages#access_denied"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
+  get "home/home"
+  get "admin" => "home#index", :as => "admin"
   get "home/index"
   get "home/input_scrape_knowledge"
   get "list" => "knowledges#knowledges_providers", :as => "list"
+  get "search" => "knowledges#home"
+  get "add_lesson_plan" => "lesson_plantations#new", :as => "add_lesson_plan"
+  get "add_knowledge" => "home#index", :as => "add_knowledge"
+  get "me" => "users#me", :as => "me"
 
-  resources :sessions
-  resources :users
-  resources :subcategorizations
-  resources :categorizations
-  resources :subcategories
-  resources :categories
-  resources :tags
-  resources :knowledges
-  resources :password_resets
-  resources :providers
+#  resources :subcategorizations
+#  resources :categorizations
+#  resources :subcategories
+#  resources :categories
+#  resources :tags
+#  resources :providers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

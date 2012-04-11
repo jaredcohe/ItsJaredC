@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111022184635) do
+ActiveRecord::Schema.define(:version => 20111121141935) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(:version => 20111022184635) do
   create_table "categorizations", :force => true do |t|
     t.integer  "knowledge_id"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "farmings", :force => true do |t|
+    t.integer  "lesson_plantation_id"
+    t.integer  "knowledge_id"
+    t.string   "title"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +49,29 @@ ActiveRecord::Schema.define(:version => 20111022184635) do
     t.string   "medium"
     t.string   "string_id"
     t.boolean  "clean"
+    t.text     "keywords"
+  end
+
+  create_table "lesson_plantations", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "keywords"
+    t.boolean  "clean"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "knowledge_id"
+    t.integer  "lesson_plantation_id"
+    t.integer  "order"
+    t.integer  "score"
+    t.text     "review"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "originations", :force => true do |t|
@@ -78,6 +110,18 @@ ActiveRecord::Schema.define(:version => 20111022184635) do
     t.datetime "updated_at"
   end
 
+  create_table "user_knowledge_states", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "knowledge_id"
+    t.integer  "user_knowledge_state_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_knowledge_states", ["knowledge_id"], :name => "index_user_knowledge_states_on_knowledge_id"
+  add_index "user_knowledge_states", ["user_id"], :name => "index_user_knowledge_states_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -86,6 +130,7 @@ ActiveRecord::Schema.define(:version => 20111022184635) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.text     "user_name"
   end
 
 end

@@ -1,0 +1,42 @@
+<div id='bottom'>
+
+  <div id="lesson_plans">
+
+      <h1 class='lesson_plans_header orange_header'>Lesson Plans</h1>
+
+      <%- @lesson_plans.each do |lesson_plan| %>  
+        <div class='lesson_plans_row'>
+          <div class='lesson_plans_title'>
+            <%= link_to truncate(lesson_plan.title, :length => 46), lesson_plan, :class => 'lesson_plans_link' %>
+          </div>
+          <div class='lesson_plans_icon'>
+            <%= link_to_function "<span></span>".html_safe, "add_lesson_to_log(this,
+              \"#{escape_javascript(@user_id.to_s)}\",
+              \"#{escape_javascript(lesson_plan.id.to_s)}\")", :class => 'plus' %>
+          </div>
+        </div>
+      <% end %>
+
+  </div>
+
+  <div id="knowledges">
+
+    <h1 class='knowledges_header orange_header'>Sources</h1>
+
+    <%- @knowledges.each do |knowledge| %>  
+      <div class='knowledges_row'>
+        <div class='knowledges_title'>
+          <%= link_to truncate(knowledge.title, :length => 46), knowledge, :class => 'knowledges_link' %>
+        </div>
+        <div class='knowledges_icons'>
+          <%= link_to_function "<span></span>".html_safe, "add_knowledge_to_log(this,
+          \"#{escape_javascript(@user_id.to_s)}\",
+          \"#{escape_javascript(knowledge.id.to_s)}\")", :class => 'plus' %>
+          <%= link_to "<span></span>".html_safe, knowledge.url, :class => 'arrow', :target => '_blank' %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

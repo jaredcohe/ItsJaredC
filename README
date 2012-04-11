@@ -1,5 +1,11 @@
 # to fix heroku not seeing css scss files, type this in terminal: RAILS_ENV=production bundle exec rake assets:precompile
 
+# log
+
+20111121: created scaffold for Log
+.rails g scaffold Log user_id:integer knowledge_id:integer lesson_plantation_id:integer order:integer score:integer review:text status:integer
+
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

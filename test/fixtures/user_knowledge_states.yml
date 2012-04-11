@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  knowledge: 
+  user_knowledge_state_id: 1
+  position: 1
+
+two:
+  user: 
+  knowledge: 
+  user_knowledge_state_id: 1
+  position: 1

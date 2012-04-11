@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @log.user_id %>
+</p>
+
+<p>
+  <b>Knowledge:</b>
+  <%= @log.knowledge_id %>
+</p>
+
+<p>
+  <b>Lesson plantation:</b>
+  <%= @log.lesson_plantation_id %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%= @log.order %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @log.score %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%= @log.review %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @log.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

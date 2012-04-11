@@ -2,35 +2,48 @@ class SessionsController < ApplicationController
   # rails g controller sessions new
 
   def new
-    p params
-    p "00000000000000"
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+    p params
+    p "Sessions Controller, Create Action"
+    p "==================="
+
+    @user = User.find_by_email(params[:email])
+
+    p @user
+
+    if @user && @user.authenticate(params[:password])
       #session[:user_id] = user.id
       if params[:rememeber_me]
-        cookies.permanent[:auth_token] = user.auth_token
+        p "1111111"
+        cookies.permanent[:auth_token] = @user.auth_token
       else
-        cookies[:auth_token] = user.auth_token
+        p "22222"
+        cookies[:auth_token] = @user.auth_token
       end
-      redirect_to root_url, :notice => "Logged in."
+
+      if params[:destination_controller] == "users" && params[:destination_action] == "me"
+        p "3333333"
+        render "/users/show", :notice => "Logged in."
+      elsif params[:destination_controller] == "lesson_plantations" && params[:destination_action] == "new"
+        redirect_to "/lesson_plantations/new", :notice => "Logged in."
+      elsif params[:destination_controller] == "home" && params[:destination_action] == "index"
+        redirect_to "/home/index", :notice => "Logged in."
+      else
+        redirect_to :root, :notice => "Logged in."
+      end
     else
+      p "4444444"
       flash.now.alert = "Invalid email or password."
-      render "new"
+      render "/users/new"
     end
-    p "params from create session"
-    p params
-    p "111111111111111"
+    p "555555"
   end
 
   def destroy
-    #session[:user_id] = nil
     cookies.delete(:auth_token)
     redirect_to root_url, :notice => "Logged out."
-    p params
-    p "000000000000000"
   end
 
 end

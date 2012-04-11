@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<p>
+  Created by: <%= User.where(:id => @lesson_plantation.user_id).first.user_name %>
+</p>
+<p>
+  <b>Title:</b>
+  <%= @lesson_plantation.title %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @lesson_plantation.description %>
+</p>
+
+<hr />
+<%- @farmings.each do |farming| %>
+  <p>
+    <%= link_to farming.knowledge.title, farming.knowledge.url, :target => "_blank" %>
+  </p>
+  <%= render 'farmings/show_farming', :farming => farming %>
+  <hr />
+<% end %>
+
+<%= link_to 'Edit', edit_lesson_plantation_path(@lesson_plantation) %>

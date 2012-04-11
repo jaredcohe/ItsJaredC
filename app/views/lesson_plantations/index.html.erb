@@ -1,0 +1,33 @@
+<h1>Listing lesson_plantations</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>User</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Keywords</th>
+    <th>Clean</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lesson_plantations.each do |lesson_plantation| %>
+  <tr>
+    <td><%= lesson_plantation.id %></td>
+    <td><%= lesson_plantation.user_id %></td>
+    <td><%= lesson_plantation.title %></td>
+    <td><%= lesson_plantation.description %></td>
+    <td><%= lesson_plantation.keywords %></td>
+    <td><%= lesson_plantation.clean %></td>
+    <td><%= link_to 'Show', lesson_plantation %></td>
+    <td><%= link_to 'Edit', edit_lesson_plantation_path(lesson_plantation) %></td>
+    <td><%= link_to 'Destroy', lesson_plantation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lesson plantation', new_lesson_plantation_path %>

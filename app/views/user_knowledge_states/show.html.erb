@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_knowledge_state.user_id %>
+</p>
+
+<p>
+  <b>Knowledge:</b>
+  <%= @user_knowledge_state.knowledge_id %>
+</p>
+
+<p>
+  <b>User knowledge state:</b>
+  <%= @user_knowledge_state.user_knowledge_state_id %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @user_knowledge_state.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_knowledge_state_path(@user_knowledge_state) %> |
+<%= link_to 'Back', user_knowledge_states_path %>

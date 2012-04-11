@@ -1,0 +1,40 @@
+<div id='log_bottom'>
+
+  <%= @user.email %>
+
+  <% @user.logs.each do |log| %>
+    <br />
+
+    <% if !log.knowledge_id.nil? %>
+
+      <% knowledge = Knowledge.find(log.knowledge_id) %>
+      <div class='knowledges_row'>
+        <div class='knowledges_title'>
+          <%= link_to truncate(knowledge.title, :length => 100), knowledge, :class => 'knowledges_link' %>
+        </div>
+        <div class='knowledges_status'>
+          <p><%= "Status: #{log.status}" %></p>
+        </div>
+      </div>
+
+    <% elsif !log.lesson_plantation_id.nil? %>
+
+      <div class='knowledges_row'>
+        <div class='knowledges_title'>
+          <% lesson_plan = LessonPlantation.find(log.lesson_plantation_id) %>
+          <%= link_to truncate(lesson_plan.title, :length => 100), lesson_plan, :class => 'lesson_plans_link' %>
+          <% lesson_plan.knowledges.each do |knowledge| %>
+          <!-- xxx add knowledges -->
+          <% end %>
+        </div>
+      </div>
+
+    <% else %>
+
+      <%= "The impossible happened - neither lesson plan nor knowledge" %>
+
+    <% end %>
+
+  <% end %>
+
+</div>

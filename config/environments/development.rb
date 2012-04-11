@@ -29,4 +29,14 @@ Itsjaredc::Application.configure do
   config.assets.debug = true
   
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  
+  # put in to upgrade to rails 3.2.0
+  # raise exception on mass assignment protection for Active Record models
+  config.active_record.mass_assignment_sanitizer = :strict
+  
+  # put in to upgrade to rails 3.2.0
+  # log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostreSQL)
+  config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
 end

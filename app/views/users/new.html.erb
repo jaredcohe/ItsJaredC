@@ -1,18 +1,11 @@
-<h1>Sign up</h1>
+<div id="log_in">
+  <p class="green_header">Log In</p>
+  <%= render '/sessions/new_session' %>
+</div>
 
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p class="button"><%= f.submit %></p>
+<p class="orange_header">OR</p>
 
-<% end %>
+<div id="log_in">
+  <p class="green_header">Sign up</p>
+  <%= render '/users/new_user' %>
+</div>

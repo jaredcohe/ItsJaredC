@@ -23,8 +23,11 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent;}
-
+  background: transparent;
+  border: solid 1px black;
+//  word-wrap: break-word;
+//  word-break: break-all;
+  }
 body {
   font-size: 14px;
   font-family: “Helvetica Neue”, Helvetica, Arial, sans-serif;
@@ -33,7 +36,78 @@ body {
 ol, ul {
   list-style: none; }
 
-$green: #71EB89;
+$darkblue1: #4E4D56;
+$darkblue2: #47616F;
+$lightblue1: #56C1DA;
+$lightblue2: #9AC0CD;
+$gray1: #E2E3E5;
+$gray2: #EBECEF;
+$gray3: #C9C9C9;
+$gray4: #3D3537;
+$darkgray: #636363;
+$green: #5C963C;
+$darkgreen: #45702d;
+$lightgreen: #58E09A;
+$purple: #7B489E;
+$orange: #EE9134;
+$yellow: #F7ED3E;
+$white: #FFFFFF;
+
 
 @import "home.css.scss";
 @import "knowledges.css.scss";
+@import "users.css.scss";
+@import "lesson_plantations.css.scss";
+
+.orange_header  {
+  color: $orange;
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 12px;
+}
+
+.green_header {
+  color: $green;
+  font-size: 28px;
+  font-weight: normal;
+  margin-top: 12px;
+  text-align: center;
+}
+
+input[id="search"], input[id="email"], input[id="user_email"], input[id="password"], input[id="user_password"], input[id="user_password_confirmation"] {
+  background-color: white;
+  border-radius: 8px;
+  color: $green; //typing text color
+  font-size: 12px;
+  height: 20px;
+  margin: 4px 0px;
+  text-align: center;
+  width: 208px;
+  &:focus {
+    background-color: white;
+    border: 2px green solid;
+    outline: none;
+  }
+}
+
+input[type="submit"] {
+  color: $green;
+  font-size: 18px;
+  margin-bottom: 20px;
+  &:hover {
+    color: $darkgreen;
+    cursor: pointer;
+  }
+}
+
+nav.top_menu {
+  
+  margin: 4px 0 0 4px;
+  
+  a {
+    color: $orange;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+  }
+}
